@@ -36,7 +36,7 @@ usuario1.data_nascimento = '09/01/1991'
 # criar os parâmetros do usuario 2
 usuario2.nome = 'Verônica'
 usuario2.sobrenome = 'Datsch'
-usuario2.data_nascimento = '12/08/1990'
+usuario2.data_nascimento = '02/08/1990'
 
 # print
 print(usuario1.nome)
