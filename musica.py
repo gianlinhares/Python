@@ -58,7 +58,7 @@ frequencia_La = frequencia_C4 * fator_la
 frequencia_Si = frequencia_C4 * fator_si
 
 # Duração da nota em milissegundos
-duracao = 1000
+duracao = 480
 
 onda_do = Sine(frequencia_Do).to_audio_segment(duration=duracao)
 onda_re = Sine(frequencia_Re).to_audio_segment(duration=duracao)
@@ -87,3 +87,22 @@ musica = primeira_estrofe + segunda_estrofe + terceira_estrofe + quarta_estrofe
 musica.export("minha_musica.mp3", format="mp3")
 
 print("Música criada com sucesso!")
+
+'''
+# Frequências das notas da melodia de "Nemo" (em Hz)
+notas_nemo = [329.63, 349.23, 329.63, 293.66, 261.63, 293.66, 329.63, 349.23, 392.00, 349.23, 329.63, 293.66, 261.63, 293.66, 329.63, 349.23, 392.00, 349.23, 329.63, 293.66, 329.63, 392.00, 440.00]
+
+# Duração de cada nota (em milissegundos)
+duracao_nota = 500
+
+# Criando a sequência de notas musicais
+melodia_nemo = AudioSegment.empty()
+for frequencia in notas_nemo:
+    nota = Sine(frequencia).to_audio_segment(duration=duracao_nota)
+    melodia_nemo += nota
+
+# Salvando a melodia em um arquivo
+melodia_nemo.export("melodia_nemo.wav", format="wav")
+
+print("Melodia de 'Nemo' criada com sucesso!")
+'''
