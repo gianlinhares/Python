@@ -35,12 +35,12 @@ musica = 0
 frequencia_C4 = 261.63
 
 fator_do = 2**(1 / 12)
-fator_re = 2**(2 / 12)  # 2 meios-tons acima da nota Dó
-fator_mi = 2**(4 / 12)  # 4 meios-tons acima da nota Dó
-fator_fa = 2**(5 / 12)  # 5 meios-tons acima da nota Dó
-fator_sol = 2**(7 / 12)  # 7 meios-tons acima da nota Dó
-fator_la = 2**(9 / 12)  # 9 meios-tons acima da nota Dó
-fator_si = 2**(11 / 12)  # 11 meios-tons acima da nota Dó
+fator_re = 2**(2 / 12)
+fator_mi = 2**(4 / 12)
+fator_fa = 2**(5 / 12)
+fator_sol = 2**(7 / 12)
+fator_la = 2**(9 / 12)
+fator_si = 2**(11 / 12)
 
 # Frequência da nota Dó (C) na mesma oitava
 frequencia_Do = frequencia_C4 * fator_do
@@ -76,6 +76,8 @@ DO-DO-RE-DO-SOL-FA
 LA-LA-DO-LA-FA-MI-RE
 LA-LA-SOL-FA-SOL-FA
 '''
+
+#musica = do + re + mi + fa + sol + la + si
 
 primeira_estrofe = do + do + re + do + fa + mi
 segunda_estrofe = do + do + re + do + sol + fa
