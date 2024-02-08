@@ -60,13 +60,13 @@ frequencia_Si = frequencia_C4 * fator_si
 # Duração da nota em milissegundos
 duracao = 480
 
-onda_do = Sine(frequencia_Do).to_audio_segment(duration=duracao)
-onda_re = Sine(frequencia_Re).to_audio_segment(duration=duracao)
-onda_mi = Sine(frequencia_Mi).to_audio_segment(duration=duracao)
-onda_fa = Sine(frequencia_Fa).to_audio_segment(duration=duracao)
-onda_sol = Sine(frequencia_Sol).to_audio_segment(duration=duracao)
-onda_la = Sine(frequencia_La).to_audio_segment(duration=duracao)
-onda_si = Sine(frequencia_Si).to_audio_segment(duration=duracao)
+do = Sine(frequencia_Do).to_audio_segment(duration=duracao)
+re = Sine(frequencia_Re).to_audio_segment(duration=duracao)
+mi = Sine(frequencia_Mi).to_audio_segment(duration=duracao)
+fa = Sine(frequencia_Fa).to_audio_segment(duration=duracao)
+sol = Sine(frequencia_Sol).to_audio_segment(duration=duracao)
+la = Sine(frequencia_La).to_audio_segment(duration=duracao)
+si = Sine(frequencia_Si).to_audio_segment(duration=duracao)
 
 # Convertendo a onda senoidal em um segmento de áudio com a duração especificada
 # musica = onda_do + onda_re + onda_mi + onda_fa + onda_sol + onda_la + onda_si
@@ -77,11 +77,13 @@ LA-LA-DO-LA-FA-MI-RE
 LA-LA-SOL-FA-SOL-FA
 '''
 
-primeira_estrofe = onda_do + onda_do + onda_re + onda_do + onda_fa + onda_mi
-segunda_estrofe = onda_do + onda_do + onda_re + onda_do + onda_sol + onda_fa
-terceira_estrofe = onda_la + onda_la + onda_do + onda_la + onda_fa + onda_mi + onda_re
-quarta_estrofe = onda_la + onda_la + onda_sol + onda_fa + onda_sol + onda_fa
+primeira_estrofe = do + do + re + do + fa + mi
+segunda_estrofe = do + do + re + do + sol + fa
+terceira_estrofe = la + la + do + la + fa + mi + re
+quarta_estrofe = la + la + sol + fa + sol + fa
 musica = primeira_estrofe + segunda_estrofe + terceira_estrofe + quarta_estrofe
+
+#musica = do + re + mi + fa + fa + fa + do + re + do + re + re + re + sol + fa + mi + mi + mi + do  + re + mi + fa + fa + fa
 
 # Salvando a música em um arquivo
 musica.export("minha_musica.mp3", format="mp3")
@@ -105,4 +107,27 @@ for frequencia in notas_nemo:
 melodia_nemo.export("melodia_nemo.wav", format="wav")
 
 print("Melodia de 'Nemo' criada com sucesso!")
+
+
+from pydub.generators import Sawtooth
+import random
+
+# Definindo parâmetros
+duração_total = 10000  # 10 segundos
+duração_compasso = 500   # 0.5 segundos por compasso
+#notas = [220, 330, 440, 550]  # Frequências das notas
+notas = [273, 322, 441, 587]  # Frequências das notas
+# Criando o segmento de áudio
+música_eletrônica = AudioSegment.empty()
+
+# Gerando o padrão da música eletrônica
+for _ in range(int(duração_total / duração_compasso)):
+    nota = random.choice(notas)
+    onda = Sawtooth(nota).to_audio_segment(duration=duração_compasso)
+    música_eletrônica += onda
+
+# Exportando o segmento de áudio para um arquivo
+música_eletrônica.export("música_eletrônica.mp3", format="mp3")
+
+print("Música eletrônica criada com sucesso!")
 '''
